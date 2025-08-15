@@ -1,4 +1,5 @@
 from string import ascii_uppercase as UP
+
 s = input()
 
 nos = [0] * 26
@@ -6,26 +7,26 @@ nos = [0] * 26
 for x in s:
     nos[ord(x) - ord('A')] += 1
 
-Prev = 'a'
+prev = 'a'
 ans = []
 
 for i in range(len(s)):
-    Possible = ""
-    Found = False
+    possible = ""
+    found = False
     for j in range(26):
-        if (not Found and UP[j] != Prev and nos[j] > 0):
-            Possible = UP[j]
-            Found = True
-        if nos[j] > (len(s) - i) // 2:  # will become imposi
-            Possible = UP[j]
+        if not found and UP[j] != prev and nos[j] > 0:
+            possible = UP[j]
+            found = True
+        if nos[j] > (len(s) - i) // 2:  # will become impossible
+            possible = UP[j]
 
-    if Possible == "":
+    if possible == "":
         print(-1)
         break
 
-    ans.append(Possible)
-    nos[ord(Possible) - ord('A')] -= 1
-    Prev = Possible
+    ans.append(possible)
+    nos[ord(possible) - ord('A')] -= 1
+    prev = possible
 else:
     for i in range(len(s) - 1):
         if ans[i] == ans[i + 1]:
