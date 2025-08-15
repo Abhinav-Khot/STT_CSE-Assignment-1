@@ -4,6 +4,11 @@ from string import ascii_uppercase as UP
 
 
 def rearrange_string(s: str) -> str:
+    '''
+        input : string containing lowercase alphabets
+        output: rearranged string with no two adjacent letters being the same
+                -1 if this is not possible.
+    '''
     nos = [0] * 26
 
     for x in s:
@@ -37,5 +42,5 @@ def rearrange_string(s: str) -> str:
 
 
 if __name__ == "__main__":
-    s = input()
-    print(rearrange_string(s))
+    input_string = input()
+    print(rearrange_string(input_string))
